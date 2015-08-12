@@ -1,2 +1,2 @@
-# CamelKafkaGearman
-Simple Kafka consumer that sends jobs to Gearman
+# camel-kafka
+Simple Apache Kafka conumer using Apache Camel

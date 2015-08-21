@@ -7,8 +7,10 @@ import org.apache.camel.builder.RouteBuilder;
 /**
  * Created by sascha.moellering on 18/05/2015.
  */
+
 public class KafkaRouteBuilder extends RouteBuilder {
 
+    @Override
     public void configure() {
 
         ServerProperties props = ServerProperties.getInstance();

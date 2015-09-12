@@ -14,8 +14,20 @@ public class KafkaRouteBuilder extends RouteBuilder {
     public void configure() {
 
         ServerProperties props = ServerProperties.getInstance();
-        String connectionString = "kafka:" + props.getKafkaBroker() + ":" + props.getKafkaPort() +
-                "?topic=" + props.getKafkaTopic() + "&zookeeperHost=" + props.getZookeeperServer() +
+
+        String kafkaBroker = System.getenv().get("KAFKA_BROKER");
+        String zookeeperServer = System.getenv().get("ZOOKEEPER_SERVER");
+
+        if (null == kafkaBroker){
+            kafkaBroker = props.getKafkaBroker();
+        }
+
+        if (null == zookeeperServer) {
+            zookeeperServer = props.getZookeeperServer();
+        }
+
+        String connectionString = "kafka:" + kafkaBroker + ":" + props.getKafkaPort() +
+                "?topic=" + props.getKafkaTopic() + "&zookeeperHost=" + zookeeperServer +
                 "&zookeeperPort=" + props.getZookeeperPort() + "&groupId=group1";
         from(connectionString)
                 .bean(WorkerComponent.class, "submitJob");

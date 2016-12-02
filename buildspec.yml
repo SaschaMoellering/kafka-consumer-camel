@@ -17,4 +17,4 @@ phases:
 artifacts:
   type: zip
   files:
-    - src/target/docker/camel-kafka-1.0-SNAPSHOT-shaded.jar
+    - target/camel-kafka-1.0-SNAPSHOT-shaded.jar

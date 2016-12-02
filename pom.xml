@@ -141,7 +141,7 @@
                         </goals>
                         <configuration>
                             <finalName>kafka-consumer-${project.version}</finalName>
-                            <outputDirectory>target/docker</outputDirectory>
+                            <outputDirectory>target</outputDirectory>
                             <transformers>
                                 <!-- add Main-Class to manifest file -->
                                 <transformer
